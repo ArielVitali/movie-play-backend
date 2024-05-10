@@ -9,14 +9,14 @@ const getUserById = async (id) => {
     throw Error(error);
   }
 };
-const updateUser = async (id, name, avatar) => {
+const updateUserById = async (id, name, avatar) => {
   try {
     return await userDao.updateUser(id, name, avatar);
   } catch (error) {
     throw Error(error);
   }
 };
-const deleteUser = async (id) => {
+const deleteUserById = async (id) => {
   try {
     return await userDao.deleteUser(id);
   } catch (error) {
@@ -24,4 +24,4 @@ const deleteUser = async (id) => {
   }
 };
 
-export { getUserById, updateUser, deleteUser };
+export { getUserById, updateUserById, deleteUserById };

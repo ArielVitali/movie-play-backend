@@ -1,4 +1,8 @@
-import { getUserById, updateUser, deleteUser } from "../store/users.store.js";
+import {
+  getUserById,
+  updateUserById,
+  deleteUserById,
+} from "../store/users.store.js";
 
 /**
  * Get a user by ID
@@ -6,7 +10,7 @@ import { getUserById, updateUser, deleteUser } from "../store/users.store.js";
  * userId Integer
  * returns User
  **/
-export const getUserById = async (id) => {
+export const getUser = async (id) => {
   try {
     return await getUserById(id);
   } catch (error) {
@@ -23,7 +27,7 @@ export const getUserById = async (id) => {
  **/
 export const updateUser = async (id, name, avatar) => {
   try {
-    return await updateUser(id, name, avatar);
+    return await updateUserById(id, name, avatar);
   } catch (error) {
     throw Error(error);
   }
@@ -37,7 +41,7 @@ export const updateUser = async (id, name, avatar) => {
  **/
 export const deleteUser = async (id) => {
   try {
-    return await deleteUser(id);
+    return await deleteUserById(id);
   } catch (error) {
     throw Error(error);
   }

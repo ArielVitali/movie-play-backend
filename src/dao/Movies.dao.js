@@ -1,18 +1,23 @@
-export const getMovies = async (req, res) => {
-  try {
-    const movies = await db.query(`SELECT * FROM movies`);
-    res.json(movies.rows);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+class MovieDao {
+  constructor() {}
 
-export const getMovieById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const movie = await db.query(`SELECT * FROM movies WHERE id = $1`, [id]);
-    res.json(movie.rows[0]);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  async getMovies() {
+    try {
+      const movies = await db.query(`SELECT * FROM movies`);
+      return movies.rows;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
-};
+
+  async getMovieById(id) {
+    try {
+      const movie = await db.query(`SELECT * FROM movies WHERE id = $1`, [id]);
+      return movie.rows[0];
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+}
+
+export default MovieDao;

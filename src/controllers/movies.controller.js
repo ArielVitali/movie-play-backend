@@ -1,16 +1,26 @@
 import RouterClass from "../router/router.class.js";
+import { getMovies, getMovie } from "../services/movies.service.js";
 
 class MoviesController extends RouterClass {
   init() {
     this.get("/", ["PUBLIC"], (req, res) => {
-      res.send("Hello, world!");
+      try {
+        const movies = getMovies();
+        res.send(movies);
+      } catch (error) {
+        res.sendServerError(error);
+      }
     });
 
     this.get("/:id", ["PUBLIC"], (req, res) => {
-      res.send("Hello, world!");
+      try {
+        const id = req.params.id;
+        const movie = getMovie(id);
+        res.send(movie);
+      } catch (error) {
+        res.sendServerError(error);
+      }
     });
-
-    this.post("/:id/users/:uid/rating", ["PUBLIC"], (req, res) => {});
   }
 }
 

@@ -1,16 +1,13 @@
 import RouterClass from "../router/router.class.js";
-import {
-  getUserById,
-  updateUser,
-  deleteUser,
-} from "../services/users.service.js";
+import { getUser, updateUser, deleteUser } from "../services/users.service.js";
 
 class UsersController extends RouterClass {
   init() {
     this.get("/:id", ["PUBLIC"], async (req, res) => {
       try {
         const id = req.params.id;
-        return await getUserById(id);
+        const response = await getUser(id);
+        res.sendSuccess(response);
       } catch (error) {
         res.sendServerError(error);
       }
