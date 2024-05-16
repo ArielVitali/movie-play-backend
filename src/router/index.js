@@ -15,7 +15,6 @@ const router = (app) => {
   app.use("/api/movies", moviesController);
   app.use("/api/auth", authController);
   app.use("/api/health", healthController);
-  app.use("/api/", viewController);
 };
 
 export default router;

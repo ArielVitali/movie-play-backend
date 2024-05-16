@@ -12,7 +12,7 @@ const initializePassport = () => {
       {
         clientID: clientID_google,
         clientSecret: clientSecret_google,
-        callbackURL: `http://${host}:${port}/api/auth/google/callback`,
+        callbackURL: `http://${host}:${port}/api/auth/google/callback`, //aca deberiamos poner la url de nuestro front,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {

@@ -17,8 +17,5 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "pg": "^8.11.5"
-  },
-  "devDependencies": {
-    "express-handlebars": "^7.1.2"
   }
 }
